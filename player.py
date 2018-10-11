@@ -3,6 +3,9 @@ class Player:
         self.name=self.get_name()
         self.piece=piece
     def get_name(self):
-        pass
+        name=input("Enter the player's name: ")
+        return name
     def get_choice(self,board):
-        pass
+        print("What column would you like to place your piece in?")
+        choice=input('> ')
+        return choice
