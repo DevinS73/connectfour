@@ -1,34 +1,34 @@
 from board import Board
 from player import Player
 class Game:
-   def __init__(self,players,board):
+   def __init__(self,board):
       self.turn=0
-      self.players=players
+      self.players=[]
+      self.players.append(Player('X'))
+      self.players.append(Player('O'))
       self.board=board
    def play_game(self):
       print("Welcome to connect four!")
       turn=0
-      while board.check_win()==False and board.is_full()==False:
-        players[turn%len(players)].get_choice()
-          try:
-              board.place_piece(players[turn%len(players)].piece,players[turn%len(players)].get_choice())
-              board.disp_board()
-              if board.check_win()==True:
-                  print(f'Congratualations, {players[turn%len(players)].name}, you win!')
-                  board.empty_board()
-                  break
-              if board.is_full()==True:
+      while self.board.check_win()==False or self.board.is_full()==False:
+        self.board.disp_board()
+        self.players[turn].get_choice()
+        try:
+              self.board.place_piece(self.players[turn].piece,self.players[turn].get_choice())
+              if self.board.check_win()==True:
+                  print(f'Congratualations, {self.players[turn].name}, you win!')
+                  self.board.empty_board()
+                  self.board.disp_board()
+                  return
+              if self.board.is_full()==True:
                   print("The board is full, it's a draw.")
-                  board.empty_board()
-                  break
-              turn+=1
-          except Exception as e:
+                  self.board.empty_board()
+                  self.board.disp_board()
+                  return
+              turn=(turn+1)%2
+        except Exception as e:
               print(f'Error: {e}')
 
 if __name__=="__main__":
-   print("For player 1 (O's):")
-   player1=Player('O')
-   print()
-   print("For player 2 (X's):")
-   player2=Player('X')
-   game=Game([player1,player2],Board(7,6))
+   game=Game(Board(7,6))
+   game.play_game()
