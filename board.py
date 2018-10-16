@@ -60,7 +60,24 @@ class Board():
                 if c >= 4:
                     return True
             c = 0
-                
+            
+        c = 0
+        for i in range(self.width):
+            if self.board[i][i] == 'X':
+                c += 1
+            else:
+                c = 0
+            if c >= 4:
+                return True
+            
+        for i in range(self.width):
+            if self.board[self.height-1-i][i] == 'X':
+                c += 1
+            else:
+                c = 0
+            if c >= 4:
+                return True
+            
         return False
     
     def is_full(self):
@@ -93,3 +110,4 @@ if __name__ == "__main__":
     b.add_piece(4,'O')
     b.add_piece(4,'X')
     b.disp_board()
+    print(b.check_win())
