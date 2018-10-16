@@ -12,18 +12,17 @@ class Game:
       turn=0
       while self.board.check_win()==False or self.board.is_full()==False:
         self.board.disp_board()
-        self.players[turn].get_choice()
         try:
-              self.board.place_piece(self.players[turn].piece,self.players[turn].get_choice())
+              self.board.add_piece(self.players[turn].get_choice(self.board),self.players[turn].piece)
               if self.board.check_win()==True:
-                  print(f'Congratualations, {self.players[turn].name}, you win!')
-                  self.board.empty_board()
+                  print(f'Congratualations, {self.players[turn].name.title()}, you win!')
                   self.board.disp_board()
+                  self.board.empty_board()
                   return
               if self.board.is_full()==True:
                   print("The board is full, it's a draw.")
-                  self.board.empty_board()
                   self.board.disp_board()
+                  self.board.empty_board()
                   return
               turn=(turn+1)%2
         except Exception as e:
