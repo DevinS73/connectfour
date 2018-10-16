@@ -62,22 +62,10 @@ class Board():
             c = 0
             
         c = 0
-        for i in range(self.width):
-            if self.board[i][i] == 'X':
-                c += 1
-            else:
-                c = 0
-            if c >= 4:
-                return True
-            
-        for i in range(self.width):
-            if self.board[self.height-1-i][i] == 'X':
-                c += 1
-            else:
-                c = 0
-            if c >= 4:
-                return True
-            
+        for r in range(self.height-4):
+            for col in range(self.width-4):
+                mdiag = [self.board[r][col],self.board[r+1][col+1],self.board[r+2][col+2],self.board[r+3][col+3]]
+        
         return False
     
     def is_full(self):
@@ -99,6 +87,7 @@ class Board():
 
 if __name__ == "__main__":
     b = Board(6,7)
+    b.add_piece(1,'O')
     b.add_piece(1,'X')
     b.add_piece(2,'O')
     b.add_piece(2,'X')
