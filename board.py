@@ -74,22 +74,22 @@ class Board():
                         c = 0
                     if c >= 4:
                         return True
-                c = 0
+            c = 0
                 
         c = 0
-        for i in range(self.height-4):
-            for j in range(self.width-4):
+        for i in range(self.height-3):
+            for j in range(self.width-3):
                 for k in range(4):
-                    if self.board[i+k][j+k] == 'Y':
+                    if self.board[i+k][j+k] == 'o':
                         c += 1
                     else:
                         c = 0
                     if c >= 4:
                         return True
-                c = 0
+            c = 0
                 
         c = 0
-        for i in range(self.height-4,self.height):
+        for i in range(self.height-1,self.height-4,-1):
             for j in range(self.width-4):
                 for k in range(4):
                     if self.board[i-k][j+k] == 'x':
@@ -98,19 +98,19 @@ class Board():
                         c = 0
                     if c >= 4:
                         return True
-                c = 0
+            c = 0
                 
         c = 0
-        for i in range(self.height-4,self.height):
+        for i in range(self.height-1,self.height-4,-1):
             for j in range(self.width-4):
                 for k in range(4):
-                    if self.board[i-k][j+k] == 'Y':
+                    if self.board[i-k][j+k] == 'o':
                         c += 1
                     else:
                         c = 0
                     if c >= 4:
                         return True
-                c = 0
+            c = 0
         
         return False
     
