@@ -4,13 +4,13 @@ class Game:
    def __init__(self,board):
       self.turn=0
       self.players=[]
-      self.players.append(Player('X'))
-      self.players.append(Player('O'))
+      self.players.append(Player('x'))
+      self.players.append(Player('o'))
       self.board=board
    def play_game(self):
       print("Welcome to connect four!")
       turn=0
-      while self.board.check_win()==False or self.board.is_full()==False:
+      while True:
         self.board.disp_board()
         try:
               self.board.add_piece(self.players[turn].get_choice(self.board),self.players[turn].piece)
