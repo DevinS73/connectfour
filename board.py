@@ -65,8 +65,8 @@ class Board():
             c = 0
             
         c = 0
-        for i in range(self.height-4):
-            for j in range(self.width-4):
+        for i in range(self.height-3):
+            for j in range(self.width-3):
                 c = 0
                 for k in range(4):
                     if self.board[i+k][j+k] == 'x':
@@ -91,8 +91,8 @@ class Board():
             
                 
         c = 0
-        for i in range(self.height-1,self.height-4,-1):
-            for j in range(self.width-4):
+        for i in range(self.height-1,self.height-3,-1):
+            for j in range(self.width-3):
                 c = 0
                 for k in range(4):
                     if self.board[i-k][j+k] == 'x':
@@ -103,8 +103,8 @@ class Board():
                         return True
                 
         c = 0
-        for i in range(self.height-1,self.height-4,-1):
-            for j in range(self.width-4):
+        for i in range(self.height-1,self.height-3,-1):
+            for j in range(self.width-3):
                 c = 0
                 for k in range(4):
                     if self.board[i-k][j+k] == 'o':
@@ -140,17 +140,15 @@ class Board():
 
 if __name__ == "__main__":
     new_board = Board(7,6)
-    new_board.add_piece(1,'x')
-    new_board.add_piece(1,'o')
-    new_board.add_piece(1,'o')
-    new_board.add_piece(2,'x')
-    new_board.add_piece(2,'o')
-    new_board.add_piece(2,'x')
-    new_board.add_piece(2,'o')
-    new_board.add_piece(3,'o')
-    new_board.add_piece(3,'x')
-    new_board.add_piece(3,'o')
+    new_board.add_piece(7,'x')
+    new_board.add_piece(6,'x')    
+    new_board.add_piece(6,'x')
+    new_board.add_piece(5,'o')
+    new_board.add_piece(5,'x')
+    new_board.add_piece(5,'x')
+    new_board.add_piece(4,'x')
+    new_board.add_piece(4,'x')
     new_board.add_piece(4,'o')
-    new_board.add_piece(4,'o')
+    new_board.add_piece(4,'x')
     new_board.disp_board()
     print(new_board.check_win())
