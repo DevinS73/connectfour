@@ -42,7 +42,7 @@ class ConnectFourAI:
                 except Exception as e:
                     print(e)
                     points[i] = -10000000
-            print(points)
+            #print(points)
             
             # if the average == max...beginning of game is the only time this can happen
             if sum(points)//len(points) == max(points):
