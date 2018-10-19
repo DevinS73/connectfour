@@ -7,15 +7,7 @@ class Game:
       self.players=[]
       self.board=Board(7,6)
    def play_game(self):
-      '''Welcomes the player, asks whether they want to play
-   single or double player, and asks for player names. After this,
-   the game of connect four begins and players are given the chance to choose
-   what column they would like to place their piece in. The board is
-   then displayed and the it is checked if the player has won or
-   there has been a draw. If there is a win or a draw, the game ends
-   and the appropriate message is printed. If at any time a player inserts
-   an invalid input, the appropriate error is returned and they are given
-   another chance to input their choice'''
+      '''Plays the game.'''
       print('Welcome to Connect Four!')
       while True:
           try:
