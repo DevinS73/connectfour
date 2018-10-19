@@ -1,4 +1,5 @@
 
+
 class Board():
     def __init__(self,w,h):
         self.width = w
@@ -6,6 +7,8 @@ class Board():
         self.board = [[' ']*w for i in range(h)]
     
     def add_piece(self,column,piece):
+        '''places piece in the specified column'''
+        
         if column < 1 or column > self.width:
             raise ValueError("Invalid Column")
         
@@ -17,9 +20,13 @@ class Board():
             raise ValueError("Column Full")
     
     def empty_board(self):
+        '''resets the board to an empty slate'''
+        
         self.board = [[' ']*self.width for i in range(self.height)]
     
     def check_win(self):
+        '''determines if there is a winner, returns True or False'''
+        
         c = 0
         for i in range(self.height):
             for j in range(self.width):
@@ -29,8 +36,7 @@ class Board():
                     c = 0
                 if c >= 4:
                     return True
-            c = 0
-            
+            c = 0            
         c = 0
         for i in range(self.height):
             for j in range(self.width):
@@ -40,8 +46,7 @@ class Board():
                     c = 0
                 if c >= 4:
                     return True
-            c = 0
-            
+            c = 0            
         c = 0
         for i in range(self.width):
             for j in range(self.height):
@@ -51,8 +56,7 @@ class Board():
                     c = 0
                 if c >= 4:
                     return True
-            c = 0
-        
+            c = 0        
         c = 0
         for i in range(self.width):
             for j in range(self.height):
@@ -62,8 +66,7 @@ class Board():
                     c = 0
                 if c >= 4:
                     return True
-            c = 0
-            
+            c = 0            
         c = 0
         for i in range(self.height-3):
             for j in range(self.width-3):
@@ -74,9 +77,7 @@ class Board():
                     else:
                         c = 0
                     if c >= 4:
-                        return True
-            
-                
+                        return True                            
         c = 0
         for i in range(self.height-3):
             for j in range(self.width-3):
@@ -87,9 +88,7 @@ class Board():
                     else:
                         c = 0
                     if c >= 4:
-                        return True
-            
-                
+                        return True                            
         c = 0
         for i in range(self.height-1,self.height-3,-1):
             for j in range(self.width-3):
@@ -100,8 +99,7 @@ class Board():
                     else:
                         c = 0
                     if c >= 4:
-                        return True
-                
+                        return True                
         c = 0
         for i in range(self.height-1,self.height-3,-1):
             for j in range(self.width-3):
@@ -117,6 +115,8 @@ class Board():
         return False
     
     def is_full(self):
+        '''checks if board is full, returns True or False'''
+        
         for row in self.board:
             for ele in row:
                 if ele == ' ':
@@ -124,6 +124,8 @@ class Board():
         return True
     
     def disp_board(self):
+        '''displays the board with the column numbers underneath'''
+        
         for i in range(self.width*2):
             print('-',end='')
         print()
@@ -140,15 +142,8 @@ class Board():
 
 if __name__ == "__main__":
     new_board = Board(7,6)
-    new_board.add_piece(7,'x')
-    new_board.add_piece(6,'x')    
-    new_board.add_piece(6,'x')
-    new_board.add_piece(5,'o')
-    new_board.add_piece(5,'x')
-    new_board.add_piece(5,'x')
-    new_board.add_piece(4,'x')
-    new_board.add_piece(4,'x')
-    new_board.add_piece(4,'o')
-    new_board.add_piece(4,'x')
+    for j in range(6):
+        for i in range(7):
+            new_board.add_piece(i+1,'x')
     new_board.disp_board()
-    print(new_board.check_win())
+    print(new_board.is_full())
