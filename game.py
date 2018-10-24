@@ -24,7 +24,7 @@ class Game:
       self.players.append(Player('x'))
       while True:
         self.board.disp_board()
-        try:
+        try:  
               if choice.lower=='s':
                   if self.players[self.turn].piece=='x':
                       self.board.add_piece(self.players[self.turn].get_choice(self.board),self.players[self.turn].piece)
