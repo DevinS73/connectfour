@@ -26,7 +26,8 @@ class Board():
     
     def check_win(self):
         '''determines if there is a winner, returns True or False'''
-        
+        # more comments would be nice, at least telling what
+        # each is checking
         c = 0
         for i in range(self.height):
             for j in range(self.width):
